@@ -8,7 +8,7 @@ public class DaneSignatureTrustEngineNamespaceHandler extends BaseSpringNamespac
 	
 	private final Logger log = LoggerFactory.getLogger(DaneSignatureTrustEngineNamespaceHandler.class);
 
-	public static final String NAMESPACE = "urn:mace:danetest.se:shibboleth:danetrustengine";
+	public static final String NAMESPACE = "urn:mace:shibboleth:danetrustengine";
 
     public void init() {
         registerBeanDefinitionParser(DaneSignatureEngineBeanDefinitionParser.SCHEMA_TYPE, new DaneSignatureEngineBeanDefinitionParser());

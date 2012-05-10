@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" 
 		xmlns:sec="urn:mace:shibboleth:2.0:security" 
-		targetNamespace="urn:mace:shibboleth:2.0:security" 
+		targetNamespace="urn:mace:shibboleth:danetrustengine" 
 		elementFormDefault="qualified">
         
 
