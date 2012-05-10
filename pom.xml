@@ -22,9 +22,12 @@
     </repositories>
 
     <dependencies>
-        <!-- Compile dependencies -->
-
-
+        <!-- Compile dependencies -->	
+        <dependency>
+        	<groupId>org.slf4j</groupId>
+        	<artifactId>slf4j-api</artifactId>
+        	<version>1.6.4</version>
+        </dependency>
         <!-- Provided dependencies -->
         <dependency>
             <groupId>edu.internet2.middleware</groupId>
