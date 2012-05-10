@@ -1,37 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" 
 		xmlns:sec="urn:mace:shibboleth:2.0:security" 
-		targetNamespace="urn:mace:shibboleth:danetrustengine" 
+		targetNamespace="urn:mace:danetest:danetrustengine" 
 		elementFormDefault="qualified">
         
 
  <import schemaLocation="classpath:/schema/shibboleth-2.0-security.xsd" />
  
-    
-    <complexType name="DaneTrustEngine">
+     <complexType name="DaneTrustEngine">
         <annotation>
             <documentation>
-               Trust engine to use during DANE trust checks
+                Trust engine used to validate a key against statically-configured trusted keys.
             </documentation>
         </annotation>
         <complexContent>
             <extension base="sec:TrustEngineType">
-                <choice minOccurs="1" maxOccurs="unbounded">
-                    <element ref="sec:TrustEngine"/>
-                    <element name="TrustEngineRef">
+                <sequence>
+                    <element ref="sec:Credential" minOccurs="1" maxOccurs="unbounded">
                         <annotation>
-                            <documentation>Reference to a trust engine.</documentation>
+                            <documentation>
+                                A trusted credential to be included in the static trusted credential set.
+                            </documentation>
                         </annotation>
-                        <complexType>
-                            <attribute name="ref">
-                                <annotation>
-                                    <documentation>Bean reference id for a trust engine declared elsewhere.</documentation>
-                                </annotation>
-                            </attribute>
-                        </complexType>
                     </element>
-              </choice>
+                </sequence>
             </extension>
         </complexContent>
     </complexType>
+    
  </schema>
