@@ -52,12 +52,13 @@ public class DaneTrustEngine implements TrustedCredentialTrustEngine<Credential>
     public DaneTrustEngine(CredentialResolver resolver) {
     	log.debug("[DaneExtension] DaneTrustEngine constructor started.");
         if (resolver == null) {
-        	log.error("[DaneExtension] No credentials given.");
+        	log.error("[DaneExtension] No credentials given in relying-party.xml.");
             throw new IllegalArgumentException("Credential resolver may not be null");
         }
         credentialResolver = resolver;
-
+    
         trustEvaluator = new ExplicitKeyTrustEvaluator();
+        log.debug("[DaneExtension] DaneTrustEngine constructor finished. ");
     }
 
     /** {@inheritDoc} */

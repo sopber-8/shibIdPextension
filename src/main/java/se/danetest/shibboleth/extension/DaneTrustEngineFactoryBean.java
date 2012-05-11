@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.AbstractFactoryBean;
 
 /**
- * Spring factory bean used to created {@link ExplicitKeyTrustEngine}s based on a static credential resolver.
+ * Spring factory bean used to created {@link DaneTrustEngine}s based on a static credential resolver.
  */
 public class DaneTrustEngineFactoryBean extends AbstractFactoryBean {
     
