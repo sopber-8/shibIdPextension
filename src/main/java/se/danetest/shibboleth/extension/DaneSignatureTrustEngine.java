@@ -18,7 +18,7 @@ public class DaneSignatureTrustEngine<TrustEngineType> implements SignatureTrust
 
 	 /** Class logger. */
     private final Logger log = LoggerFactory.getLogger(DaneSignatureTrustEngine.class);
-    
+ /*  
     public void simpleLookupDNS (String[] args) throws UnknownHostException {
     	InetAddress ip = InetAddress.getByName("www.danetest.se");
     	String ipaddress = (String)ip.getHostAddress();
@@ -30,6 +30,7 @@ public class DaneSignatureTrustEngine<TrustEngineType> implements SignatureTrust
     		}
     		log.debug("public static void simpleLookupDNS (String[] args) throws UnknownHostException");
     	}
+*/
 
     /** KeyInfo credential resolver used to obtain the signing credential from a Signature's KeyInfo. */
     private KeyInfoCredentialResolver keyInfoCredentialResolver;
@@ -42,16 +43,16 @@ public class DaneSignatureTrustEngine<TrustEngineType> implements SignatureTrust
      */
     public DaneSignatureTrustEngine(KeyInfoCredentialResolver keyInfoResolver) {
         if (keyInfoResolver == null) {
-        	log.debug("DaneSignatureTrustEngine(KeyInfoCredentialResolver keyInfoResolver)");
+        	log.debug("[DaneError] DaneSignatureTrustEngine.java row 46");
             throw new IllegalArgumentException("KeyInfo credential resolver may not be null");
         }
         keyInfoCredentialResolver = keyInfoResolver;
-        log.debug("DaneSignatureTrustEngine(KeyInfoCredentialResolver keyInfoResolver)");
+        log.debug("[DaneError] DaneSignatureTrustEngine.java row 50");
     }
     
     /** {@inheritDoc} */
     public KeyInfoCredentialResolver getKeyInfoResolver() {
-    	log.debug("public KeyInfoCredentialResolver getKeyInfoResolver()");
+    	log.debug("[DaneError] DaneSignatureTrustEngine.java row 55");
         return keyInfoCredentialResolver;
     }
     
@@ -70,29 +71,29 @@ public class DaneSignatureTrustEngine<TrustEngineType> implements SignatureTrust
 	public boolean validate(Signature token, CriteriaSet trustBasisCriteria)
 			throws SecurityException {
 		if(token.getKeyInfo() != null){
-			 KeyInfoCriteria keyInfoCriteria = new KeyInfoCriteria(token.getKeyInfo());
-	         CriteriaSet keyInfoCriteriaSet = new CriteriaSet(keyInfoCriteria);
+			log.debug("[DaneError] DaneSignatureTrustEngine.java row 74");
+			KeyInfoCriteria keyInfoCriteria = new KeyInfoCriteria(token.getKeyInfo());
+	        CriteriaSet keyInfoCriteriaSet = new CriteriaSet(keyInfoCriteria);
 	         
-	         for (Credential kiCred : getKeyInfoResolver().resolve(keyInfoCriteriaSet)) {
+	        for (Credential kiCred : getKeyInfoResolver().resolve(keyInfoCriteriaSet)) {
 	                if (verifySignature(token, kiCred)) {
-	                    log.debug("public boolean validate(Signature token, CriteriaSet trustBasisCriteria)throws SecurityException, Successfully verified signature using KeyInfo-derived credential");
-	                    log.debug("public boolean validate(Signature token, CriteriaSet trustBasisCriteria)throws SecurityException, Attempting to establish trust of KeyInfo-derived credential");
+	                	log.debug("[DaneError] DaneSignatureTrustEngine.java row 80");	                 
 	                    if (evaluateTrust(kiCred, (TrustEngineType)trustBasisCriteria)) {
-	                        log.debug("public boolean validate(Signature token, CriteriaSet trustBasisCriteria)throws SecurityException, Successfully established trust of KeyInfo-derived credential");
+	                    	log.debug("[DaneError] DaneSignatureTrustEngine.java row 82");
 	                        return true;
 	                    } else {
-	                        log.debug("public boolean validate(Signature signature, TrustEngineType trustEngineCriteria)throws SecurityException, Failed to establish trust of KeyInfo-derived credential");
+	                    	log.debug("[DaneError] DaneSignatureTrustEngine.java row 85");
 	                    }
 	                }
 	         }
-	         log.debug("public boolean validate(Signature token, CriteriaSet trustBasisCriteria)throws SecurityException");
+	        log.debug("[DaneError] DaneSignatureTrustEngine.java row 89");
 	    } 
 			
 		else {
-			log.debug("public boolean validate(Signature token, CriteriaSet trustBasisCriteria)throws SecurityException, Signature contained no KeyInfo element, could not resolve verification credentials");
+			log.debug("[DaneError] DaneSignatureTrustEngine.java row 93");
 	    }
 
-	log.debug("public boolean validate(Signature token, CriteriaSet trustBasisCriteria)throws SecurityException, Failed to verify signature and/or establish trust using any KeyInfo-derived credentials");
+		log.debug("[DaneError] DaneSignatureTrustEngine.java row 96");
    return false;
 	}
 
@@ -106,12 +107,13 @@ public class DaneSignatureTrustEngine<TrustEngineType> implements SignatureTrust
 	protected boolean verifySignature(Signature signature, Credential credential) {
 	    SignatureValidator validator = new SignatureValidator(credential);
 		    try {
+		    	log.debug("[DaneError] DaneSignatureTrustEngine.java row 110");
 		        validator.validate(signature);
 		    } catch (ValidationException e) {
-		        log.debug("protected boolean verifySignature(Signature signature, Credential credential), Signature validation using candidate validation credential failed", e);
+		    	log.debug("[DaneError] DaneSignatureTrustEngine.java row 113");
 		        return false;
 		    }
-	    log.debug("protected boolean verifySignature(Signature signature, Credential credential), Signature validation using candidate credential was successful");
+		    log.debug("[DaneError] DaneSignatureTrustEngine.java row 116");
 	    return true;
 		}
 
@@ -127,14 +129,13 @@ public class DaneSignatureTrustEngine<TrustEngineType> implements SignatureTrust
      */
 	protected boolean evaluateTrust(Credential untrustedCredential, TrustEngineType trustEngineCriteria)
             throws SecurityException {
-			log.debug("protected boolean evaluateTrust(Credential untrustedCredential, TrustEngineType trustEngineCriteria)");
+		log.debug("[DaneError] DaneSignatureTrustEngine.java row 132");
 		return false;
 	}
 
 	public boolean validate(byte[] signature, byte[] content, String algorithmURI, CriteriaSet trustEngineCriteria,
 			Credential candidateCredential) throws SecurityException {
-		// TODO Auto-generated method stub
-			log.debug("public boolean validate(byte[] signature, byte[] content, String algorithmURI, CriteriaSet trustEngineCriteria, Credential candidateCredential) throws SecurityException");
+		log.debug("[DaneError] DaneSignatureTrustEngine.java row 138");
 		return false;
 	}
 }

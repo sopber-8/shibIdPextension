@@ -2,19 +2,19 @@ package se.danetest.shibboleth.extension;
 
 import javax.xml.namespace.QName;
 
+import org.opensaml.xml.util.DatatypeHelper;
+import org.opensaml.xml.util.XMLHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.FatalBeanException;
+import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
+import org.springframework.beans.factory.support.ManagedList;
 import org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser;
 import org.springframework.beans.factory.xml.ParserContext;
 import org.w3c.dom.Element;
-//import org.opensaml.xml.util.DatatypeHelper;
-//import org.opensaml.xml.util.XMLHelper;
-//import org.springframework.beans.FatalBeanException;
-//import org.springframework.beans.factory.support.AbstractBeanDefinition;
-//import org.springframework.beans.factory.support.ManagedList;
-//import edu.internet2.middleware.shibboleth.common.config.SpringConfigurationUtils;
 
+import edu.internet2.middleware.shibboleth.common.config.SpringConfigurationUtils;
 
 public class DaneSignatureEngineBeanDefinitionParser extends AbstractSingleBeanDefinitionParser{
  
@@ -22,12 +22,10 @@ public class DaneSignatureEngineBeanDefinitionParser extends AbstractSingleBeanD
     public static final QName SCHEMA_TYPE = new QName(DaneSignatureTrustEngineNamespaceHandler.NAMESPACE, "DaneTrustEngine");
     
     /** TrustEngine element name. */
-    @SuppressWarnings("unused")
-	private static final QName TRUST_ENGINE_NAME = new QName(DaneSignatureTrustEngineNamespaceHandler.NAMESPACE, "TrustEngine");
+    private static final QName TRUST_ENGINE_NAME = new QName(DaneSignatureTrustEngineNamespaceHandler.NAMESPACE, "TrustEngine");
     
     /** TrustEngineRef element name. */
-    @SuppressWarnings("unused")
-	private static final QName TRUST_ENGINE_REF_NAME = new QName(DaneSignatureTrustEngineNamespaceHandler.NAMESPACE, "TrustEngineRef");
+    private static final QName TRUST_ENGINE_REF_NAME = new QName(DaneSignatureTrustEngineNamespaceHandler.NAMESPACE, "TrustEngineRef");
     
     /** Class logger. */
     private final Logger log = LoggerFactory.getLogger(DaneSignatureEngineBeanDefinitionParser.class);
@@ -35,13 +33,15 @@ public class DaneSignatureEngineBeanDefinitionParser extends AbstractSingleBeanD
     /** {@inheritDoc} */
     @SuppressWarnings("rawtypes")
 	protected Class getBeanClass(Element element) {
-    	log.debug("protected Class getBeanClass(Element element), return DaneSignatureTrustEngine.class;");
+    	log.debug("[DaneError] DaneSignatureEngineBeanDefinitionParser.java row 38");
         return DaneSignatureTrustEngine.class;
     }
     
     /** {@inheritDoc} */
-    protected void doParse(Element element, ParserContext parserContext, BeanDefinitionBuilder builder) {
-    	/**
+    @SuppressWarnings("unchecked")
+	protected void doParse(Element element, ParserContext parserContext, BeanDefinitionBuilder builder) {
+    	log.debug("[DaneError] DaneSignatureEngineBeanDefinitionParser.java row 44");
+    	
         log.info("Parsing configuration for {} trust engine with id: {}", XMLHelper.getXSIType(element)
                 .getLocalPart(), element.getAttributeNS(null, "id"));
         
@@ -66,14 +66,14 @@ public class DaneSignatureEngineBeanDefinitionParser extends AbstractSingleBeanD
         }
         
         builder.addPropertyValue("chain", managedChain);
-        */
-    	log.debug("protected void doParse(Element element, ParserContext parserContext, BeanDefinitionBuilder builder)");
+    	log.debug("[DaneError] DaneSignatureEngineBeanDefinitionParser.java row 70");
     }
     
  
-    /** {@inheritDoc} 
+    /** {@inheritDoc} **/ 
     protected String resolveId(Element element, AbstractBeanDefinition definition, ParserContext parserContext) {
+    	log.debug("[DaneError] DaneSignatureEngineBeanDefinitionParser.java row 82");
         return DatatypeHelper.safeTrim(element.getAttributeNS(null, "id"));
-    }*/
+    }
     
 }

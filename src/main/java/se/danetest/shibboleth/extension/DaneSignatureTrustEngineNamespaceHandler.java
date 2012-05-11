@@ -11,8 +11,7 @@ public class DaneSignatureTrustEngineNamespaceHandler extends BaseSpringNamespac
 	public static final String NAMESPACE = "urn:mace:danetest:danetrustengine";
 
     public void init() {
-    	log.debug("public void init(), registerBeanDefinitionParser(DaneSignatureEngineBeanDefinitionParser.SCHEMA_TYPE, new DaneSignatureEngineBeanDefinitionParser());");
-    	registerBeanDefinitionParser(DaneSignatureEngineBeanDefinitionParser.SCHEMA_TYPE, new DaneSignatureEngineBeanDefinitionParser());
-        // other calls to registerBeanDefinitionParser for other extensions in this namespace would go here  
+    	log.debug("[DaneError] DaneSignatureTrustEngineNamespaceHandler.java row 14");
+    	registerBeanDefinitionParser(DaneSignatureEngineBeanDefinitionParser.SCHEMA_TYPE, new DaneSignatureEngineBeanDefinitionParser());  
     }
 }
