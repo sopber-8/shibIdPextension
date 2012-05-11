@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+		xmlns:sec="urn:mace:shibboleth:2.0:security" 
+		targetNamespace="urn:mace:danetest:danetrustengine" 
+		elementFormDefault="qualified">
+        
+
+ <import namespace="urn:mace:shibboleth:2.0:security" schemaLocation="classpath:/schema/shibboleth-2.0-security.xsd" />
+ 
+     <complexType name="DaneTrustEngine">
+        <annotation>
+            <documentation>
+                Trust engine used to validate a key against statically-configured trusted keys.
+            </documentation>
+        </annotation>
+        <complexContent>
+            <extension base="sec:TrustEngineType">
+                <sequence>
+                    <element ref="sec:Credential" minOccurs="1" maxOccurs="unbounded">
+                        <annotation>
+                            <documentation>
+                                A trusted credential to be included in the static trusted credential set.
+                            </documentation>
+                        </annotation>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    
+ </schema>
