@@ -88,5 +88,6 @@
 	<classpathentry kind="var" path="M2_REPO/edu/internet2/middleware/ant-extensions/11Jan2011/ant-extensions-11Jan2011.jar"/>
 	<classpathentry kind="var" path="M2_REPO/edu/internet2/middleware/shibboleth-jce/1.1.0/shibboleth-jce-1.1.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

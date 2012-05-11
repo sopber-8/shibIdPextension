@@ -30,7 +30,7 @@ public class DaneTrustEngineBeanDefinitionParser extends AbstractSingleBeanDefin
     @SuppressWarnings("rawtypes")
 	protected Class getBeanClass(Element element) {
     	log.debug("[DaneExtension] Returning the DaneSignatureTrustEngine class to requesting class/function.");
-    	return DaneTrustEngine.class;
+    	return DaneTrustEngineFactoryBean.class;
     }
 
     /** {@inheritDoc} */
