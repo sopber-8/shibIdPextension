@@ -1,1 +1,1 @@
-urn\:mace\:danetest\:danetrustengine = schema/TrustEngineType.xsd
+urn\:mace\:danetest\:danetrustengine = schema/DaneTrustEngineSchema.xsd

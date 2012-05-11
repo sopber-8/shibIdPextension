@@ -39,10 +39,13 @@ public class DaneTrustEngineBeanDefinitionParser extends AbstractSingleBeanDefin
     	log.info("[DaneExtension] Parsing configuration for {} trust engine with id: {}", XMLHelper.getXSIType(element).getLocalPart(),
                 element.getAttributeNS(null, "id"));
 
+    	log.debug("[DaneExtension] Temporary debug trace message. #1 ");
         List<Element> childElems = XMLHelper.getChildElementsByTagNameNS(element, DaneTrustEngineNamespaceHandler.NAMESPACE,
                 "Credential");
+        log.debug("[DaneExtension] Temporary debug trace message. #2 ");
         builder.addPropertyValue("credentials", SpringConfigurationUtils
                         .parseCustomElements(childElems, parserContext));
+        log.debug("[DaneExtension] Temporary debug trace message. #3 ");
     }
 
     /** {@inheritDoc} */

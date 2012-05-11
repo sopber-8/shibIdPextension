@@ -12,6 +12,10 @@ public class DaneTrustEngineNamespaceHandler extends BaseSpringNamespaceHandler 
 
     public void init() {
     	log.debug("[DaneExtension] Register the DaneSignatureTrustEngineBeanDefinitionParser.");
-    	registerBeanDefinitionParser(DaneTrustEngineBeanDefinitionParser.SCHEMA_TYPE, new DaneTrustEngineBeanDefinitionParser());  
+    	
+    	registerBeanDefinitionParser(DaneTrustEngineBeanDefinitionParser.SCHEMA_TYPE, 
+    									new DaneTrustEngineBeanDefinitionParser());
+    	
+    	log.debug("[DaneExtension] DaneSignatureTrustEngineBeanDefinitionParser has been registered. ");
     }
 }
