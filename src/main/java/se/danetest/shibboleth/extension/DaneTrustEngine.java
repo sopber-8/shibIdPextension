@@ -56,8 +56,9 @@ public class DaneTrustEngine implements TrustedCredentialTrustEngine<Credential>
             throw new IllegalArgumentException("Credential resolver may not be null");
         }
         credentialResolver = resolver;
-
+    
         trustEvaluator = new ExplicitKeyTrustEvaluator();
+        log.debug("[DaneExtension] DaneTrustEngine constructor finished. ");
     }
 
     /** {@inheritDoc} */
