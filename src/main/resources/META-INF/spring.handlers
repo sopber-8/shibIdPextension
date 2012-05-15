@@ -1,1 +1,1 @@
-urn\:mace\:danetest\:danetrustengine = se.danetest.shibboleth.extension.DaneTrustEngineNamespaceHandler
+urn\:mace\:danetest\:danetrustengine = se.danetest.shibboleth.extension.DaneExplicitKeySignatureTrustEngineNamespaceHandler
